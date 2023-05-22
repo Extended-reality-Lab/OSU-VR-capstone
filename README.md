@@ -13,7 +13,7 @@ If you want to set up a different terrain, follow this guide https://docs.google
 
 Guide to build to Oculus Quest 2: https://www.youtube.com/watch?v=nixc8NF_97s
 
-FBX Model was not included into project due to size limit for GitHub. This can be downloaded through the Capstone Folder - https://drive.google.com/drive/folders/1PFS3VPSEXscDdQEMNmgmUcog07QUBNoX
+FBX Models: https://drive.google.com/file/d/1uuuYa2_SCE-S7FKwcFFRlBIMsNeotdOq/view?pli=1
 
 Documentation regarding attributes of each UI made/planning to make - https://docs.google.com/document/d/1Lw-FXbxrZazIOTHdDP3rDbIxav2emYUJSHzTLsOUiVY/edit
 
