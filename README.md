@@ -12,3 +12,9 @@ You need to have visual studio installed and follow the UE4 setup guide for it: 
 If you want to set up a different terrain, follow this guide https://docs.google.com/document/d/133Vf6EgnMjNxLHRqBu-Up9t6NF8EQpd5yfdEtEVZ8XQ/edit?usp=sharing
 
 Guide to build to Oculus Quest 2: https://www.youtube.com/watch?v=nixc8NF_97s
+
+FBX Models: https://drive.google.com/file/d/1uuuYa2_SCE-S7FKwcFFRlBIMsNeotdOq/view?pli=1
+
+Documentation regarding attributes of each UI made/planning to make - https://docs.google.com/document/d/1Lw-FXbxrZazIOTHdDP3rDbIxav2emYUJSHzTLsOUiVY/edit
+
+Documentation regarding supporting documents in order to make progress - https://docs.google.com/document/d/1Hu8Jp7w-55TDG2RVOGltc1t1s5lS0IRIosxlJexJX2U/edit
