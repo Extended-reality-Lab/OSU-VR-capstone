@@ -5,6 +5,8 @@ deriveddatacache/
 .vs/
 build/
 Content/Modle
+Content/VRTemplate/Maps
+Content/VRE
 intermediate/
 PACKPLUGIN/
 COMPPLUGIN/
