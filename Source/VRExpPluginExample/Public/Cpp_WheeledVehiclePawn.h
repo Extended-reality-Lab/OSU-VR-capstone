@@ -25,6 +25,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
 		USceneComponent* L_lever_base;
 
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
+		//VRlevel
 	ACpp_WheeledVehiclePawn();
 
 	float Move_speed = 0;
@@ -35,6 +37,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
 	bool Is_right_grip = false;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
+	//VRlever
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Ik_use)
 		FTransform Ik_Transe = FTransform(FVector(0, 6958.0, 3000.0));
