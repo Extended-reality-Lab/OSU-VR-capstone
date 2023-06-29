@@ -98,13 +98,13 @@ ACpp_WheeledVehiclePawn::ACpp_WheeledVehiclePawn()
 
 	if (ULocalPlayer* LocalPlayer = Cast<ULocalPlayer>(UGameplayStatics::GetPlayerController(GetWorld(), 0)))
 	{
-		/*if (UEnhancedInputLocalPlayerSubsystem* InputSystem = LocalPlayer->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
+		if (UEnhancedInputLocalPlayerSubsystem* InputSystem = LocalPlayer->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
 		{
 			if (!InputMapping.IsNull())
 			{
 				InputSystem->AddMappingContext(InputMapping.LoadSynchronous(), Priority);
 			}
-		}*/
+		}
 	}
 
 
