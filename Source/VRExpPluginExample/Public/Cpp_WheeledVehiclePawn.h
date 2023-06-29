@@ -95,9 +95,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
 		UPhysicsConstraintComponent* Tip_move_physice;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Input")
-		UInputMappingContext* InputMapping;
-
+	
 
 	
 	
@@ -110,11 +108,15 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Ik_use)
 		FTransform Ik_Transe = FTransform(FVector(0, 6958.0, 3000.0));
 
-	UFUNCTION(BlueprintCallable)
-		FTransform R_Control();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintCallable)
+		FTransform R_Control();
+	UFUNCTION(BlueprintCallable)
+		void Set_driver();
+
+	
 };

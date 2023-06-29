@@ -123,41 +123,28 @@ FTransform ACpp_WheeledVehiclePawn::R_Control()
 
 void ACpp_WheeledVehiclePawn::BeginPlay()
 {
-	if (ULocalPlayer* LocalPlayer = Cast<ULocalPlayer>(UGameplayStatics::GetPlayerController(GetWorld(), 0)))
-	{
-		/*if (UEnhancedInputLocalPlayerSubsystem* InputSystem = LocalPlayer->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
-		{
-			if (!InputMapping.IsNull())
-			{
-				InputSystem->AddMappingContext(InputMapping.LoadSynchronous(), Priority);
-			}
-		}*/
-	}
+	Super::BeginPlay();
+	Set_driver();
+	//.bool AVRBaseCharacter::SetSeatedMode(USceneComponent * SeatParent, bool bSetSeatedMode, FTransform TargetTransform
+	//, FTransform InitialRelCameraTransform, float AllowedRadius, float AllowedRadiusThreshold, bool bZeroToHead, EVRConjoinedMovementModes PostSeatedMovementMode)
+	//SetSeatedMode
+	//AVRBaseCharacter::SetSeatedMode(*Driver_pos,);
 
+}
+
+void ACpp_WheeledVehiclePawn::Set_driver()
+{
 
 	AVRBaseCharacter* player;
 	FTimerHandle TimerHandle;
 	GetWorld()->GetTimerManager().SetTimer(TimerHandle, [&]()
 		{
 			player = Cast<AVRBaseCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
-			if (player != nullptr)
-			{
-				player->SetSeatedMode(Driver_pos, true, player->VRProxyComponent->GetRelativeTransform(), FTransform(), 40.0, 20.0, true);
-				GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::Printf(TEXT("in set")));
-			}
-			
+	if (player != nullptr)
+	{
+		player->SetSeatedMode(Driver_pos, true, player->VRProxyComponent->GetRelativeTransform(), FTransform(), 40.0, 20.0, true);
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::Printf(TEXT("in set")));
+	}
+
 		}, 3, false);
-
-
-
-	
-	
-	
-
-
-	//.bool AVRBaseCharacter::SetSeatedMode(USceneComponent * SeatParent, bool bSetSeatedMode, FTransform TargetTransform
-	//, FTransform InitialRelCameraTransform, float AllowedRadius, float AllowedRadiusThreshold, bool bZeroToHead, EVRConjoinedMovementModes PostSeatedMovementMode)
-	//SetSeatedMode
-	//AVRBaseCharacter::SetSeatedMode(*Driver_pos,);
-
 }
