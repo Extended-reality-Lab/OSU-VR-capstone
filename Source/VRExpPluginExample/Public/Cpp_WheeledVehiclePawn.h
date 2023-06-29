@@ -4,9 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "WheeledVehiclePawn.h"
+#include "PhysicsEngine/PhysicsConstraintComponent.h"
+
 #include "Cpp_WheeledVehiclePawn.generated.h"
 
 class UVRLeverComponent;
+class UArrowComponent;
+class UInputMappingContext;
 
 /**
  * 
@@ -30,16 +34,72 @@ public:
 		USceneComponent* Driver_pos;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
-		USceneComponent* R_lever_base;
+		USceneComponent* R_lever_tip;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
-		USceneComponent* L_lever_base;
+		USceneComponent* L_lever_tip;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
+		UStaticMeshComponent* R_lever_base;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
+		UStaticMeshComponent* L_lever_base;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
 		UVRLeverComponent* L_lever;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
 		UVRLeverComponent* R_lever;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
+		UArrowComponent* Right_arrow;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
+		UArrowComponent* Left_arrow;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UStaticMeshComponent* tip3;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UStaticMeshComponent* tip2;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UStaticMeshComponent* tip1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UStaticMeshComponent* tip;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UStaticMeshComponent* tip_move;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UStaticMeshComponent* Right_tip_low;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UStaticMeshComponent* Right_tip_up;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UStaticMeshComponent* Left_tip;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UStaticMeshComponent* Left_tip_up;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UStaticMeshComponent* Left_tip_low;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UStaticMeshComponent* RIght_tip;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Tip)
+		UPhysicsConstraintComponent* Tip_move_physice;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Input")
+		UInputMappingContext* InputMapping;
+
+
+	
 	
 	float Move_speed = 0;
 
