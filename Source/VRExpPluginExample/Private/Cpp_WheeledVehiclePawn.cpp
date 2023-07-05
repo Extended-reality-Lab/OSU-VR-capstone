@@ -7,6 +7,7 @@
 #include "Components/ArrowComponent.h"
 #include "InputMappingContext.h"
 #include "EnhancedInputSubsystems.h"
+#include "ChaosVehicleMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
 
 ACpp_WheeledVehiclePawn::ACpp_WheeledVehiclePawn()
@@ -98,13 +99,13 @@ ACpp_WheeledVehiclePawn::ACpp_WheeledVehiclePawn()
 
 	if (ULocalPlayer* LocalPlayer = Cast<ULocalPlayer>(UGameplayStatics::GetPlayerController(GetWorld(), 0)))
 	{
-		if (UEnhancedInputLocalPlayerSubsystem* InputSystem = LocalPlayer->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
+		/*if (UEnhancedInputLocalPlayerSubsystem* InputSystem = LocalPlayer->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
 		{
 			if (!InputMapping.IsNull())
 			{
 				InputSystem->AddMappingContext(InputMapping.LoadSynchronous(), Priority);
 			}
-		}
+		}*/
 	}
 
 
@@ -123,8 +124,9 @@ FTransform ACpp_WheeledVehiclePawn::R_Control()
 
 void ACpp_WheeledVehiclePawn::BeginPlay()
 {
-	Super::BeginPlay();
+
 	Set_driver();
+	Super::BeginPlay();
 	//.bool AVRBaseCharacter::SetSeatedMode(USceneComponent * SeatParent, bool bSetSeatedMode, FTransform TargetTransform
 	//, FTransform InitialRelCameraTransform, float AllowedRadius, float AllowedRadiusThreshold, bool bZeroToHead, EVRConjoinedMovementModes PostSeatedMovementMode)
 	//SetSeatedMode
@@ -148,3 +150,49 @@ void ACpp_WheeledVehiclePawn::Set_driver()
 
 		}, 3, false);
 }
+
+void ACpp_WheeledVehiclePawn::Throttle(float val)
+{
+	
+	//GetVehicleMovementComponent()->SetThrottleInput(0);
+	if (val < 0) {//go back
+		
+		GetVehicleMovementComponent()->SetThrottleInput(0);
+		GetVehicleMovementComponent()->SetBrakeInput(-val);
+	}
+	else if(val >0) {//go forword 
+		GetVehicleMovementComponent()->SetBrakeInput(0);
+		GetVehicleMovementComponent()->SetThrottleInput(val);
+	}
+	else {
+		GetVehicleMovementComponent()->SetBrakeInput(0);
+	}
+}
+
+void ACpp_WheeledVehiclePawn::Base_Rotation(float val)
+{
+	//set rotation 
+	
+	FTransform tmp = GetActorTransform();
+	if (TeleportTo(tmp.GetLocation(),
+		FRotator(tmp.GetRotation().X, tmp.GetRotation().Y, tmp.GetRotation().Z + val),
+		false, false)) {
+
+		TeleportEnumToFlag(ETeleportType::TeleportPhysics);
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::Printf(TEXT("true")));
+	}
+	else {
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::Printf(TEXT("false")));
+	}
+	}
+	
+		
+
+	/*SetActorRotation(FQuat(FRotator(
+		tmp.GetRotation().X, tmp.GetRotation().Y, tmp.GetRotation().Z + val)));*/
+
+	
+
+
+
+

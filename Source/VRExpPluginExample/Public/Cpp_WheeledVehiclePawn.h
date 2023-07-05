@@ -117,6 +117,9 @@ protected:
 		FTransform R_Control();
 	UFUNCTION(BlueprintCallable)
 		void Set_driver();
-
+	UFUNCTION(BlueprintCallable)
+		void Throttle(float Thr_sp);
+	UFUNCTION(BlueprintCallable)
+		void Base_Rotation(float Rot_sp);
 	
 };
