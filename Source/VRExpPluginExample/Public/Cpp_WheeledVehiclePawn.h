@@ -104,6 +104,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
 	bool Is_right_grip = false;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
+	bool Right_grip = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = lever_vir)
+	bool Left_grip = false;
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Ik_use)
 		FTransform Ik_Transe = FTransform(FVector(0, 6958.0, 3000.0));
@@ -112,6 +118,8 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
 		FTransform R_Control();

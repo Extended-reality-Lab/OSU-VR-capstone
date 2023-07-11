@@ -134,6 +134,13 @@ void ACpp_WheeledVehiclePawn::BeginPlay()
 
 }
 
+void ACpp_WheeledVehiclePawn::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+
+}
+
 void ACpp_WheeledVehiclePawn::Set_driver()
 {
 
