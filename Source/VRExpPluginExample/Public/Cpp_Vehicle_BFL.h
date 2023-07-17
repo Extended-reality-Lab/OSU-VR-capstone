@@ -10,6 +10,20 @@ class UArrowComponent;
 /**
  * 
  */
+
+UENUM(BlueprintType)
+enum LeverEnum
+{
+	Rotated_Left,
+	Rotated_Right,
+	Rotated_Forward,
+	Rotated_back,
+	Not_rotated
+	
+	
+};
+
+
 UCLASS()
 class VREXPPLUGINEXAMPLE_API UCpp_Vehicle_BFL : public UBlueprintFunctionLibrary
 {
@@ -17,16 +31,10 @@ class VREXPPLUGINEXAMPLE_API UCpp_Vehicle_BFL : public UBlueprintFunctionLibrary
 	
 public:
 
-	UENUM(BlueprintType)
-		enum class LeverEnum : uint8
-	{
-		Left,
-		Right,
-		F
-	};
 
-	UFUNCTION(BlueprintCallable)
-		FTransform Lever_Control(bool is_grab, FTransform Lever_tip,
-			UArrowComponent Arrow, UStaticMeshComponent* Mesh_ToMove, FTransform IK_Trans);
+	UFUNCTION(BlueprintCallable, Category = "Stuff", 
+		Meta = (ExpandEnumAsExecs = "Branches"))
+		static void Get_lever_direction(FTransform Lever_base, FTransform Forword_arrow,
+			FVector Lever_tip, TEnumAsByte<LeverEnum>& Branches);
 
 };
