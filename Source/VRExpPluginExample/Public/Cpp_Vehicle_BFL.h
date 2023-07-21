@@ -34,7 +34,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Stuff", 
 		Meta = (ExpandEnumAsExecs = "Branches"))
-		static void Get_lever_direction(FTransform Lever_base, FTransform Forword_arrow,
+		static float Get_lever_direction(FTransform Lever_base, FTransform Forword_arrow,
 			FVector Lever_tip, TEnumAsByte<LeverEnum>& Branches);
 
 };
